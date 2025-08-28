@@ -1,8 +1,5 @@
 HW 0 - due today (what to submit?)
 
-    link format
-
-hi
 
 HW 1 - due Tuesday, September 2
     be sure to explain your reasoning when asked
@@ -43,11 +40,12 @@ else {
     statements3;
 }
 
+condition 1 is false when x >= 3 && y <= 4
 
 
---> is it possible for "statements2" to execute?7
+--> is it possible for "statements2" to execute?
 
-
+NO, y can't be 7 and the first if condition would be true
 
 
 ////////////////////////////////////////////////////////
@@ -69,11 +67,16 @@ Mae tells you, "Bill would tell you that I am a knave."
 What types are Sarah, Bill, and Mae?
 
 
+
 (How might we simplify everything?)
 
-
+Sarah: Bill is a knight
+Bill: Mae is a knight
+Mae: Bill says shes a knave
     
+Suppose Sarah is a knight.  Then from her statement, Bill would have to be a knight, and from his statement, Mae would have to be a knight.  Mae's statement would be a lie, which is impossible.
 
+Suppose instead Sarah is a knave.  Then in a similar way from the statements, Bill and Mae would have to be knaves.  Her statement works since Bill would lie and say she's a knight, but she lies about what he would say.
 
 ////////////////////////////////////
 
@@ -89,7 +92,10 @@ Unicorn says: "Yesterday was one of my lying days, too."
 
 What day is it?
 
-
+Sunday?  No, Lion couldn't say that
+Tuesday/Friday/Wednesday/Saturday? Whoever is lying also lied the day before but should still be lying about it.
+Monday?  Unicorn didn't lie yesterday and shouldn't be lying about it.
+Thursday?  yes
 
 ////////////////////////////////
 
@@ -108,7 +114,9 @@ The second one says: "I'm Tweedledee."
 
 Which is which? What day is it?
 
+Any day but Sunday, one lies one tells truth.  Would both give same name.
 
+Must be Sunday, they are both
 
 
 
@@ -137,12 +145,18 @@ You don't know what day it is, but are sure that it isn’t
 The first one says: "Tweedledee owns the rattle."
 The second one says: "I'm Tweedledee!"
 
-Who gets the rattle?
+Who gets the rattle?  The first twin
+
+Suppose the first twin is telling the truth.  Then Tweedledee owns the rattle.  The second twin must be lying, so the second twin must be Tweedledum.  Then Tweedledee is the first twin.  We should give the rattle to the first twin.
+
+Suppose the first twin is lying.  Then Tweedledum owns the rattle.  The second twin is telling the truth, so they are Tweedledee.  Tweedledum must be the first one, so we give the rattle to the first one.
 
 Who is who?
 
 
 ///////////////////////////////////////////
+
+(Do for practice)
 
 Based on Shakespeare's "Merchant of Venice".
 
@@ -196,6 +210,7 @@ Albert says: "Then I also know when Cheryl's birthday is."
 
 When is it?
 
+July 16th
 
 
 
@@ -236,28 +251,28 @@ AND:
 
 p q  #  p ∧ q
 --------------
-T T  #    
-T F  #    
-F T  #     
-F F  #    
+T T  #    T
+T F  #    F
+F T  #    F
+F F  #    F
 
 
 OR:
 
 p q  #  p ∨ q
 --------------
-T T  #    
-T F  #    
-F T  #    
-F F  #    
+T T  #    T
+T F  #    T
+F T  #    T
+F F  #    F
 
 
 NOT:
 
 p  # ¬p
 --------
-T  # 
-F  # 
+T  # F
+F  # T
 
 ////////////////////////////////////////////////
 
@@ -275,16 +290,16 @@ Otherwise we have not.
 
 p q  #  p → q
 --------------
-T T  #    
-T F  #      
-F T  #    
-F F  #     
+T T  #    T
+T F  #    F  
+F T  #    T
+F F  #    T 
 
 /////////////////////////////////////////
 
 How does the implies operator relate to programming?
 
-
+if, conditional statements
 
 //////////////////////////////////////////
 
