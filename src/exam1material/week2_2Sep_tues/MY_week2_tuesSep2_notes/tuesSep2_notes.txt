@@ -45,10 +45,10 @@ Evaluating logical statements.
 
 Basic operations:
 
-∧ - 
-∨ - 
-¬ - 
-→ - 
+∧ - AND
+∨ - OR
+¬ - NOT
+→ - IMPLIES
 
 ////////////////////////////////////////
 
@@ -62,17 +62,25 @@ Order of operations
 
 In math? 
 
+()
+exponents
+*, / (left to right)
++, - (left to right)
 
 
 For logic statements (∧ ∨ ¬ →)?
 
-
+()
+Negation (not)
+AND
+OR
+IMPLIES
 
 
 
 Given this statement:
 
-    ¬p ∨ q ∧ r
+    ((¬p) ∨ (q ∧ r))
 
 
 
@@ -91,23 +99,27 @@ q is F
 r is F
 
 
+((not T) or (F and F))
+((F) or (F))
+F
 
+output is false.
 
 
 ////////////////////////////////////////////////
 
 Order of operations
     ¬ evaluates right to left
-        ¬¬p is equivalent to....
+        ¬¬p is equivalent to....  (not(not(p))
 
 
     ∧ and ∨ evaluate left to right
-        p ∧ q ∧ r is equivalent to....
-        p ∨ q ∨ r is equivalent to....
+        p ∧ q ∧ r is equivalent to.... (p and q) and r
+        p ∨ q ∨ r is equivalent to.... (p or q) or r
 
 
     → evaluates right to left
-        p → q → r is equivalent to....
+        p → q → r is equivalent to.... p implies (q implies r)
 
 
 
@@ -118,13 +130,15 @@ Order of operations
 Top-level operator (what happens LAST?)
 
 
-¬p ∨ q ∧ r
+(¬p) ∨ (q ∧ r)
 
 
-top-level? 
+top-level?   OR
 
 
-How is this similar to a circuit? 
+How is this similar to a circuit?  last gate
+
+top-level operator is the output of the statement.
 
 
 
@@ -134,6 +148,7 @@ p ∧ q ∨ r ∧ p
 
 rewrite with ():
 
+(p ∧ q) ∨ (r ∧ p)
 
 top-level operator? 
 
@@ -145,6 +160,7 @@ p ∧ q ∧ r ∧ s
 
 rewrite with ():
 
+((p and q) and r) and s
 
 top-level operator? AND 
 
@@ -163,7 +179,7 @@ If we have 2 variables, how many possible truth assignments?
 
     p, q
 
-
+4
 
 
 
@@ -171,11 +187,11 @@ If we have 3 variables, how many possible truth assignments?
 
     p, q, r
 
-
+8
 
 If we have n variables, how many possible truth assignments?
 
-
+2^n
 
 
 
@@ -190,20 +206,20 @@ Contingent, contradictory, tautology
 
 
 
-contingent: 
+contingent: at least one truth assignment evaluates to true and at least one truth assignment evaluates to false (a mix).
 
-    Example? 
-
-
-
-contradictory:
-
-    Example? 
+    Example? p or q
 
 
-tautology:
 
-    Example? 
+contradictory: every truth assignment evaluates to false.
+
+    Example? not p and p
+
+
+tautology: every truth assignment evaluates to true.
+
+    Example?  not p or p
     
 
 ///////////////////////////////////////////
@@ -219,18 +235,18 @@ Write a truth table for:
 
 (p ∧ r) → (r ∨ ¬q)
 
-
+                  *
 -----------------------------
 p q r  #  (p ∧ r) → (r ∨ ¬q)
 -----------------------------
-T T T #      
-T T F #      
-T F T #      
-T F F #     
-F T T #     
-F T F #    
-F F T #     
-F F F #     
+T T T #      T    T    T F
+T T F #      F    T    F F
+T F T #      T    T    T T
+T F F #      F    T    T T
+F T T #      F    T    T F
+F T F #      F    T    F F
+F F T #      F    T    T T
+F F F #      F    T    T T
 -----------------------------
 
 
@@ -276,8 +292,12 @@ parse trees
 --> what are they?
 
 --> draw one for (p ∧ q) → ¬r
-
-
+         
+         True
+false     implies  True
+   and            not r
+p       q            r
+T       F            F
 
 
 --> expression trees
@@ -286,7 +306,13 @@ parse trees
 
 --> draw one for p ∨ q ∧ r → ¬p → ¬q ∨ s
 
+p or q or r implies not p implie not q or s
 
+           implies
+   or                            implies
+p      and                   not        and
+    q       r                p       not    s
+                                      q
 
 --> how do they relate to programming?
 
@@ -314,24 +340,26 @@ Propositional logic.
 
 ////////////////////////////////////////
 
-Which ones are propositions?
+Which ones are propositions?  (true or false)
 
-Today is Thursday.
+propositional atom: as simple of a proposition as possible (doesn't contain operators).
 
-
-What time is it?
-
-
-x == 2
+Today is Thursday. yes
 
 
-Pigs can fly.
+What time is it? no
 
 
-Drive carefully.
+x == 2 yes
 
 
-y <= 4
+Pigs can fly. yes
+
+
+Drive carefully. no
+
+
+y <= 4 yes
 
 
 
@@ -350,21 +378,21 @@ Suppose we have these propositional atoms:
 
 How would we express these as English sentences?
 
-    ¬p:
+    ¬p: It is not below freezing.
 
 
-    p ∧ q:
+    p ∧ q: It is below freezing and it's snowing.
 
 
-    p → q :
+    p → q : If it's below freezing then it's snowing.
 
 
-    ¬p → ¬q:
+    ¬p → ¬q: If it's not below freezing then it's not snowing.
 
 
-    r ∨ s:
+    r ∨ s: (y <= 4 || x == 2)
 
-    ¬r:
+    ¬r: y > 4
 
 ////////////////////////
 
