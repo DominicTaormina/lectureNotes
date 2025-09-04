@@ -175,7 +175,7 @@ How could we express the NEGATION
 
 DeMorgan's laws in propositional logic:
 
-¬(p ∨ q) is equivalent to... 
+¬(p ∨ q) is equivalent to... ¬p ∧ ¬q   
 
 ¬(p ∧ q) is equivalent to... 
 
@@ -198,7 +198,9 @@ if (Character.isDigit(letter) || num < 10) {
 --> how would we negate it without using a ! operator?
     also no extra ()
 
-
+if (Character.isDigit(letter) == false || num == 10) {
+    statements
+}
 
 ///////////////////////
 
@@ -210,6 +212,17 @@ if ((y >= 4 && num != 14) || x > 0) {
 
 negate it:
 
+if (!((y >= 4 && num != 14) || x > 0)) {
+    statements
+}
+
+if (!((y >= 4 && num != 14) && x <= 0)) {
+    statements
+}
+
+if ((y < 4 || num == 14) && x <= 0) {
+    statements
+}
 
 ///////////////////////
 
@@ -231,20 +244,34 @@ associative laws
 
     (2 + 3) + 5 = ?
 
-    (p ∧ q) ∧ r     vs      ???   
+    (p ∧ q) ∧ r     vs          p ∧ (q ∧ r)      ∧ is associative 
 
 
-    (p → q) → r     vs      ???
+    (p → q) → r     vs      p → (q → r)      -> is not associative
 
     how to show logically equivalent? 
 
-    how to show NOT equivalent? 
+    implies is NOT associative
+
+    how to show NOT equivalent? find ONE truth assignment where the two statements have different output.
 
 
+   (p → q) → r is false
+   p → (q → r) is true
+
+   p = F
+   q = T
+   r = F
+
+They are not equivalent because the two statements have different output on the above truth assignment.
 
 commutative laws 
 
+p and q vs  q and p
 
+p → q vs q → p
+
+p = T, q = F makes the first statement false but the second statement true, so implies is not commutative.
 
 --> you may still be asked to demonstrate these with
     truth tables or prove them with natural deduction (coming soon)
@@ -256,10 +283,13 @@ Summary of equivalence.
 
 How do we prove two statements ARE equivalent?
 
-
+two truth tables
+show that for every truth assignment, they have the same output.
 
 How do we prove two statements are NOT equivalent?
 
+find one truth assignment
+is a counterexample
 
 
 
@@ -269,30 +299,41 @@ What is equivalent to:
 
 ¬p → q
 
+¬q → p
+p V q
 
 //////////////////////////
 
 Satisfiability.
 
 - definition: 
-
+a logical statement is satisfiable if I can find a truth assignment where the statement outputs true.
 
 - what kind of statement is satisfiable? what kind is not?
 
+satisfiable: contingent, tautology
+not satisfiable: contradictory
 
 - is this satisfiable?
 
     (p ∨ ¬q) ∧ (q ∨ ¬r) ∧ (r ∨ ¬p)
 
+yes
+
+p = T
+q = T
+r = T
+
+makes statement output true
 
 
 
-
-
-to show a statement is satisifiable: 
+to show a statement is satisifiable: one truth assignment
 
 to show a statement is NOT satisfiable: 
 
+full truth table, classified as contradictory
+(outputs false for every truth assignment)
 
 ////////////////////////////
 
