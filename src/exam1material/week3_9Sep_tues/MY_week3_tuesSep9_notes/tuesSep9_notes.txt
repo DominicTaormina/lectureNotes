@@ -22,8 +22,12 @@ Associativity.
 
 Meaning?
 
+(p ∧ q) ∧ r equivalent to p ∧ (q ∧ r)
 
 Which operators are associative? Which are not?
+
+ARE associative: ∧ ∨ (and, or)
+NOT associative: → (implies)
 
 How to prove each case?
 
@@ -34,7 +38,17 @@ Commutativity.
 
 Meaning?
 
+p ∧ q equivalent to q ∧ p
+
 Which operators are commutative? Which are not?
+
+
+ARE communitive: and, or
+NOT communitive: implies
+
+p -> q vs q -> p
+
+p = T, q = F
 
 How to prove each case?
 
@@ -45,14 +59,15 @@ How to prove each case?
 
 Satisfiability.
 
---> definition? 
+--> definition? For a logical statement, there is at least one truth assignment that evaluates to true.
 
 --> how to prove something is satisfiable?
 
-
+just need one truth assignment where the statement outputs true.
 
 --> how to prove something is not satisfiable?
 
+full truth table, show it is contradictory (all outputs false)
 
 
 ////////////////////////////
@@ -61,16 +76,23 @@ SAT
 
 straightforward approach to checking all possibilities:
 
+logical statement, variables p, q, etc.
+
+generate all truth assignments, try them all
+n variables, 2^n truth assignements
+
+this is an exponetial time algorithm
 
 
-
-- Aside: P and NP problems
+- Aside: P and NP problems      (P can be solved,  NP can be checked)
 
 running time programs
 
 can we solve a problem in polynomial time?
 
 can we check a solution to a problem in polynomial time?
+
+not be exponential time, it would be polynomial time
 
 
 
@@ -93,6 +115,11 @@ An argument is of the form:
 
 
 --> When is an argument considered valid?
+implies statement, only false T->F (when True implies False)
+
+
+valid: anytime all premises are true, the conclusion is true.
+invalid: can find a time when all premises true, but the conclusion is false
 
 
 
@@ -119,13 +146,25 @@ I want to prove:
 Propositional atoms:
 
 
+p: I am in the CS dept
+q: I am in the ECE dept
+r: I can log in to the CS lab computers
 
 Translations:
 
+Premises: 
+p ∨ q
+¬q
+p → r
+
+Conclusion:
+r ∧ p
 
 
 --> How to prove with a truth table?
 
+find truth assignments where all three premises are true
+make sure the conclusion is true for those truth assignments
 
 
 
@@ -143,6 +182,7 @@ variables # (premise1, premise2, ..., premiseN) ⊢ conclusion
 ---------------------------------------------------------------
 
 Valid [T assigns where all premises T - conclusion should also be T]
+
 
 
 
@@ -171,7 +211,7 @@ We wish to prove:
 
 When is an argument invalid?
 
-
+find one truth assignment where all
 
 
 Example:
@@ -185,12 +225,20 @@ Proposed conclusion:
 
 1) Translate to propositional logic
 
+p: it is sunny
+q: I wear sunscreen
 
+Premises: p -> q, q
+Conclusion: p
 
-
+INVALID ARGUEMENT
 
 2) How can we show it is invalid?
 
+Counterexample: 
+p = F, q = T
+
+makes both premises true, conclusion is false.
 
 
 
@@ -209,13 +257,21 @@ Showing arguments are invalid in Logika
 ////////////////////////////
 
 Does it matter if the conclusion is true when 
-    the premises aren't?
+    the premises aren't? NO
 
 
 Does it matter if one premise is true when the other isn't?
+    NO, only care when all premises are true
+
+
 
 Does it matter if the conclusion is false when some 
     (but not all) of the premises are true?
+
+NO, doesn't matter
+
+
+
 
 ////////////////////////////
 
@@ -341,7 +397,7 @@ and also:
 
 What could we claim with AndI?
 
-
+(a ∨ ¬b) ∧ (c → d)
 
 
 
@@ -380,7 +436,7 @@ Justifications so far:
 
 
 --> what do these look like in programming?
-
+    Method call
 --> what do you think they're actually doing?
 
 
