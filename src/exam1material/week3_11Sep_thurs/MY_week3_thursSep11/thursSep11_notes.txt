@@ -29,12 +29,13 @@ where *premises* is a comma-separated list.
 
 In truth tables?
 
-
+arguement was value when every truth assignment that made all premises true also made conclusion true.
 
 
 Natural deduction?
 
-
+make different claims
+apply deduction rules to build new claims
 
 
 //////////////////////////
@@ -66,7 +67,7 @@ Reminder: natural deduction proof syntax:
 
 Natural deduction proof syntax.
 
-(premises) ⊢ (conclusion)
+(premises) ⊢ (conclusion) is called a "sequent"
 Proof(
     1 (  claim          ) by Justification,
     2 (  claim          ) by Justification,
@@ -77,7 +78,7 @@ Proof(
 
 --> what justifications so far?
 
-
+Premise, AndI, AndE1, AndE2
 
 
 /////////////////////////////////
