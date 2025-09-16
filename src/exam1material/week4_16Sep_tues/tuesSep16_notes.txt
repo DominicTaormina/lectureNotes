@@ -130,9 +130,12 @@ See Canvas announcement for list of topics.
 How to prove two propositional logic statements are 
 equivalent?
 
-    Approach 1:
+    Approach 1: truth tables (2)
+        for each truth assignment, both statements have the same output
 
-    Approach 2:
+    Approach 2: deduction (2)
+        statement1 |- statement2
+        statement2 |- statement1
 
 
 
@@ -140,21 +143,40 @@ equivalent?
 How to prove propositional logic statements are 
 NOT equivalent?
 
+find ONE counterexample (a truth assignment) where the
+two statements have different output
+
 
 
 
 What is satisfiability? 
+    there exists at least one truth assignment that makes
+    the statement output true
+
+
+    ARE satisfiable: contingent, tautology
+    NOT satisfiable: contradictory
+
+
+    prove satisfiablity:
 
 
 
 - Determining whether an argument is valid or invalid
     (what is an argument?)
-    valid: 
+    premises, conclusion
+
+    valid: every time all the premises are true then the conclusion is also true
+
 
     how prove valid?
+        1) make a "combined" truth table, make sure every truth assignment that makes all premises true also makes the conclusion true
 
+
+        2) deduction
+        
     how prove invalid?
-
+        find one truth assignment that makes all premises true but the conclusion false
 
 /////////////////////////////////////////
 
