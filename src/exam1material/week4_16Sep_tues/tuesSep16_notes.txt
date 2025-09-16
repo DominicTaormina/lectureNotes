@@ -53,13 +53,16 @@ if (extraCredit == true || grade < 90) {
 }
 
 
+if (extraCredit == true || (grade >= 80 && grade ...
+
+
 --> how does the distributive law tell us we can rewrite 
     this?
 
 
 ////////////////////////////////
 
-Implies-elimination, ImplyE
+Implies-elimination, ImplyE  (Will be on exam 1)
 
           P, P → Q
 ImplyE: -----------
