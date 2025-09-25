@@ -121,7 +121,14 @@ Proof(
 Proof(
     1 ( ¬¬p )   by Premise,
 
-
+    //as a last resort, use pbC to get p
+    2 SubProof(
+        3 Assume ( !p ),
+        4 ( F ) by NegE(3, 1)
+        //goal: F
+    ),
+    5 ( p ) by pbC(2)
+    //use pbC
 )
 
 
