@@ -18,9 +18,11 @@ import org.sireum.justification.natded.prop._
         5 ( q ) by AndE2(3),
         6 ( !q ) by ImplyE(1, 4),
         7 ( F ) by NegE(5, 6)
+        10 ( p ->: q ) by BottomE(7)
+
+        //goal: F (contradiction)
       ),
       8 ( not ( p & q ) )by NegI(2)
-        //goal: F (contradiction)
       )
     )
   )
