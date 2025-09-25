@@ -200,22 +200,34 @@ Doesn't fit a pattern or doesn't work out from above?
 HW 4.
 
 #1: p ∨ q, p → a ∨ b, q → a ∨ b, a → c, b → c ⊢ c
-    first step?
-
+    first step? use OrE on p | q
+        subproof assume p
+            get a | b
+            nest another OrE with a | b to get c
 
 #2: (p → q) ∨ (p → r) ⊢ p → q ∨ r
-    first step?
+    first step? 
+    use ImplyI subproof
+        assume P
+        try OrE subproof on premise, get to q | r in both cases
+        goal: q | r
 
 #3: p ∧ q → r ⊢ p → (q → r)
-    first step?
+    first step? use ImplyI
+        assume p
+        nest ImplyI to get our goal
+
+        goal: q ->: r
 
 #4: ¬(p ∨ q) ⊢ ¬p ∧ ¬q
-    first step?
+    first step? think of the conclusion as two separate proofs
+    first prove !p, then prove !q
 
 
 #5: p → a ∨ b, a → d, q → ¬b, p ∧ q ⊢ d
-    first step?
+    first step? 
 
+(this one will use BottomE)
 
 
 (we'll quickly discuss #6/#7 next Tuesday)
