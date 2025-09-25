@@ -10,7 +10,21 @@ import org.sireum.justification.natded.prop._
       Proof(
         1 (  !(!p | !q) ) by Premise,
 
-        
+        //think of 2 separate proofs
+
+        //first, prove p
+        2 SubProof(
+          3 Assume ( !p ),
+          4 ( !p | !q ) by OrI1(3)
+          5 ( F ) by NegE(4, 1)
+
+          //goal: F
+        ),
+        6 ( p ) by pbC(2)
+        //use pbC to conclude p
+        //then, prove q
+
+        //
     )
   )
 }
