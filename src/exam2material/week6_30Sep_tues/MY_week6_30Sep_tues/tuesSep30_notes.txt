@@ -192,12 +192,14 @@ COMPLETENESS: everything that is true is provable
 
 --> what would it mean if a proof system was unsound?
 
+I could prove things that are not true.
 
+This would be bad.
 
 
 --> what would it mean if a proof system was incomplete?
 
-
+There would be true (valid) arguements that I could not prove with my proof system.
 
 
 Propositional logic is both SOUND and COMPLETE.
@@ -237,19 +239,20 @@ A set is an unordered collection of elements
 
 Example: A = {1,4,7,11,20}
 
-    1 ? 
-    2 ?
+    1 ∈ A 
+    2 ∉ A
 
 
 
 - Common sets in math:
 
-    ℕ: 
-    ℤ: 
-    ℚ: 
-    ℝ: 
-    ℂ: 
-    ∅: 
+    ℕ: natural numbers (positive integers)
+        1, 2, 3, ...
+    ℤ: all integers (-5, 4, ..., 0, 1, 2, ...)
+    ℚ: rational numbers, p/q where p and q are integers and q != 0
+    ℝ: real numbers (numbers with decimal)
+    ℂ: complex numbers
+    ∅: empty set
 
 ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ
 
@@ -265,26 +268,26 @@ Set builder notation.
 
 {x: x ∈ ℕ, 5 ≤ x ≤ 10}
 
-
+{5,6,7,8,9,10}
 
 {k : k is a letter in "abracadabra"}
 
-
+{a,b,r,c,d}
 
 
 {x : x = 2k,  k ∈ ℕ}
 
-
+{2, 4, 8, 10, ...}
 
 
 {n : n = k^2, k ∈ Z}
 
-
+{0, 1, 4, 9, 16, ...}
 
 
 {n : n = 3a + 1, a ∈ ℕ, 1 ≤ a ≤ 4}
 
-
+{4, 7, 10, 13}
 
 //////////////////////////////////////
 
