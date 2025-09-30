@@ -20,8 +20,25 @@ p → q   equivalent to   ¬p ∨ q
 
 p → q  ⊢  ¬p ∨ q
 
+Try pbC. Assume !(!p | q)
+    Goal: !p (if we had that, we could contradict with assume)
+    Use NegI to try to get !p
+       Assume p
+       goal: F
+
+
+    goal: F (contradiction)
+
+
 
 ¬p ∨ q   ⊢  p → q
+
+use ImplyI to try to get p ->: q
+    Assume p
+        tre OrE on premise to get q in both cases
+
+    goal: q
+
 
 
 /////////////////////////
@@ -32,10 +49,25 @@ HW 4 problem 7
 
 
 ¬(p → q)  ⊢  p ∧ ¬q
+    try pbC to get p & !q
+    Assume !(p & !q)
+
+    Try to use ImplyI to get p ->: q to contradict with premise.
+        Assume p
+            Try to use pbC to get our goal of q
+                Assume !q
+
+                goal: F
+
+        goal: q
+
+    goal: F
+
 
 
 p ∧ ¬q   ⊢   ¬(p → q)
 
+Use NegI to get conclusion.  Assume p ->: q
 
 
 /////////////////////////
@@ -44,30 +76,57 @@ How do we approach proofs?
 
 1. Write out all the premises
 2. Extract all information from premises 
+    AND statement - break apart both sides
+    IMPLIES statement - see if we have or can get the IF part, then use ImplyE
+
 3. Look at what you are trying to prove (what do we look for in goal/conclusion?)
+    top level operator
 
-    ∧ - 
+    ∧ - try to prove both sides separately, then put them together
 
-    ∨ - 
+    ∨ - can you get one of the two sides? Use OrI to get the conclusion. 
+        see if you have an OR statement as a premise or a previous claim. If you do, use OrE.
+        If nothing else works, try pbC on the whole conclusion.
 
-    → - 
+    → - open ImplyI subproof. Assume the if (LHS - left hand side) part and to get to the then part (RHS - right hand side).
 
-    ¬(something) - 
+    ¬(something) - open NegI subproof.  Assume "something".
+        Goal: F
 
-    just a propositional atom? 
+    just a propositional atom? like p.
+        find where it appears in a premise or previous claim. Think about what you would need to do to extract it.
+
+        Try OrE if an OR statement is available.
+
+        If nothing works, try pbC. Assume !p, try to get F.
 
 
-After each claim - 
+After each claim - see if there is anything else to extract. 
+Scan earlier claims to see if you can put them together with new claims.
 
 
 
-Inside a subproof - 
+Inside a subproof - write down what your goal is.
+    OrE, ImplyI, PbC, NegI
+
+    OrE - need to already have an OR statement
+        your goal in both subproofs is whatever your current goal is when you open those subproofs.
+
+    ImplyI - have to assume the LHS. Goal must be the RHS.
+
+    PbC - assume must be a NOT statement. Goal is F.
+        Afterwards must conclude the assume statement without the not.
+
+    NegI - assume whatever.  Goal must be F.
+        Afterwards must conclude !(assume)
 
 
 
 Doesn't fit a pattern or doesn't work out from above?
 
+    OrE, PbC
 
+if you get stuck in an OrE subproof and can't get to your goal, see if you can get F and then use BottomE.
 
 
 --> when do we open a subproof?
