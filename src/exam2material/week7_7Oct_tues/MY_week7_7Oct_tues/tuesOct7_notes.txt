@@ -127,20 +127,30 @@ What do these mean in English? Are they true?
 
 ∀ n ∃ m (n^2 < m)
 
+The square of every integer is less than some other integer.
 
-
+true.  Whatever n is, choose m = n^2 + 1 and it will be an integer bigger than n^2.
 
 
 ∀ x ∃ y (x == y^2)
+Every integer is the square of another integer.
+
+All integers are perfect squares.
+
+false. 3 is an integer and it is not a perfect square.
 
 
 
 ∀ n ∃ m (n^2 == m)
+The square of integers is also an integer.
 
+true. (integers are closed under multiplacation)
 
 
 ∃ m ∀ n (n^2 == m)
-   
+   There is one number that equals the square of all other integers.
+
+false (no such number exists).
 
 
 /////////////////////////
@@ -155,18 +165,24 @@ Write the following in predicate logic (Domain: ℤ):
 
 The sum of two negative integers is negative
 
+two quantifiers (for two variables)
 
+∀ n ∀ m (n < 0 ⋀ m < 0  → n+m < 0)
 
-
-
+true (adding two negative numbers will only give a result that is more negative)
 
 
 The difference of two positive integers is
 not necessarily positive
 
+∃ n ∃ m (n > 0 ⋀ m > 0 ⋀ n-m <= 0)
+
+OR:
+
+¬(∀ n ∀ m ( n > 0 ⋀ m > 0 → n-m > 0))
 
 
-
+true (n = 5, m = 20, 5-20 is less than 0)
 
 
 /////////////////////////
@@ -188,8 +204,8 @@ Equivalence: DeMorgan's law (part 1).
 suppose our domain is k1 through kn
 
 
-¬(∃ x P(x)) is  equivalent to...
-
+¬(∃ x P(x)) is  equivalent to...¬(P(k1) ⋁ ... ⋁ P(kn))
+which is: ¬P(k1) ⋀ ... ⋀ ¬P(kn)
 
 /////////////////////////
 
@@ -222,9 +238,9 @@ Apply DeMorgan's laws: example
 or outside a statement with logical connectives
 
     Reminder:
-        p → q is equivalent to (OR statement): 
-        ¬(p ⋀ q) is equivalent to: 
-        ¬(p ⋁ q) is equivalent to: 
+        p → q is equivalent to (OR statement): (¬p ⋁ q)
+        ¬(p ⋀ q) is equivalent to: ¬p ⋁ ¬q
+        ¬(p ⋁ q) is equivalent to: ¬p ⋀ ¬q
 
 ///
 Domain: students
@@ -240,21 +256,37 @@ Domain: students
 
 All prize-winners were 5th graders
 
-Translation: 
+Translation: ∀ x (wonPrize(x) → in5th(x))
 
-Negation: 
 
-Translation of negation: 
+Negation: ¬(∀ x (wonPrize(x) → in5th(x))
+
+∃ x ¬(wonPrize(x) → in5th(x))
+∃ x ¬(¬wonPrize(x) ⋁ in5th(x))
+∃ x (¬wonPrize(x) ⋀ ¬in5th(x))
+
+
+Translation of negation: There is a prize winner who wasn't a 5th grader.
 
 ///
 
 A 5th grade prize winner isn't friends with anyone
 
+
+∃ x ∀ y (in5th(x) ⋀ wonPrize(x) ⋀ ¬friendsWith(x, y))
+
+
 translation: 
 
-negate: 
+negate: ¬(∃ x ∀ y (in5th(x) ⋀ wonPrize(x) ⋀ ¬friendsWith(x, y)))
+∀ x ∃ y ¬((in5th(x) ⋀ wonPrize(x)) ⋀ ¬friendsWith(x, y))
+∀ x ∃ y (¬(in5th(x) ⋀ wonPrize(x)) ⋁ friendsWith(x, y))
+
+∀ x ∃ y ((in5th(x) ⋀ wonPrize(x)) → friendsWith(x, y))
+
 
 translation of negation: 
+All 5th grade prize winners are friends with someone
 
 ////////////////////////////////////
 
