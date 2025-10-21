@@ -98,9 +98,9 @@ x is students
 
     --> what is this argument saying?
 
-∀ x (P(x) → ¬Q(x)): ?
+∀ x (P(x) → ¬Q(x)): All students who attend K-State doesn't attend KU.
 
-¬(∃ x (P(x) ^ Q(x))): ?
+¬(∃ x (P(x) ^ Q(x))): There does not exist a student who attends both K-State and KU
 
 
 ////////////////////////////
