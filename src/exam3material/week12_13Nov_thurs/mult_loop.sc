@@ -8,6 +8,10 @@ import org.sireum.justification.natded.prop._
 //finding x*y by doing x + x + x + ... + x (y times)
 def mult(x: Z, y: Z): Z = {
   //What can we use as the function contract?
+Contract(
+  Requires(y >= 0),
+  Ensures(Res[Z]  == x * y)
+)
 
   var total: Z = 0
   var i: Z = 0
