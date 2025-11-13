@@ -60,7 +60,17 @@ while (condition) {
 
 <-- what do we know here?
 
+condition is false
+
+
+
 <-- why is this more challenging than if-statements?
+
+
+
+need: loop invariants
+should be true before loop begins
+should be true at end of each iteration
 
 
 //////////////////////////////
@@ -80,13 +90,16 @@ Steps to proving correctness of a loop:
 1) Prove the invariant is true before the loop begins
 
     (what is this like in mathematical induction?)
-
+    base case
 
 
 2) Assume the invariant is true at the beginning of an iteration.
     Prove the invariant still holds at the end of the iteration.
 
     (what is this like in mathematical induction?)
+    inductive Steps
+
+    the assume is like the inductice hypothesis
 
 
 
