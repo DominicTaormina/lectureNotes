@@ -37,7 +37,7 @@ After i iterations of the loop:
     what has changed?
 
     what is the same? 
-
+        from i until size-i
 
 
 ///////////////////////////////////
@@ -88,27 +88,39 @@ Functions:
 
 
     Fan on, speed 3, rotate on. Can we call setSpeed(2)?
+        NO. The fan is rotating and we can't rotate at a lower speed.
 
     Fan off, speed 0, rotate off. Can we call setSpeed(1)?
+        Yes, and the fan should be marked on.
 
     Fan on, speed 2, rotate off. Can we call setSpeed(0)?
+        NO. Can only change speed by 1 at a time.
 
     Fan on, speed 3, rotate on. Can we call setSpeed(4)?
+        Yes. 
 
     Fan on, speed 3, rotate on. Can we call makeRotate()?
+        NO. The fan is already rotating.
 
     Fan on, speed 5, rotate off. Can we call setSpeed(5)?
+        NO. We need to change the speed when calling setSpeed.
 
     Fan on, speed 5, rotate off. Can we call setSpeed(6)?
+        NO. There is no speed 6.
 
     Fan on, speed 1, rotate off. Can we call setSpeed(0)?
+        Yes, and the fan is now marked off.
 
 
 
 setSpeed(speed: Z) preconditions?
+    speed needs to be in 0-5 range
+    speed needs to be one more or one less than curSpeed
+    if rotate is on, speed needs to be 3 or greater
 
 
     postconditions?
+        curSpeed changes to be the parameters
 
 ///////////////////////////
 
