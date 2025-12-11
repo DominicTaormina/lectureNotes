@@ -27,6 +27,7 @@ public class Account {
         _elite = false;
 
         //what should we do here?
+        globalAsserts();
     }
     /*@
         requires amount >= 0;
@@ -34,8 +35,11 @@ public class Account {
     */
     public void deposit(int amount) {
         //what do we do here?
-
-
+        
+        if (amount < 0) {
+            throw new Exception("violated precondition");
+        }
+            
         int oldBalance = _balance;
         _balance += amount;
 
@@ -43,7 +47,13 @@ public class Account {
             _elite = true;
         }
 
+        globalAssert();
+
         //what do we do here?
+        //assert that I met the postcondition
+        assert _balance == oldBalance + amount;
+
+        globalAssert();
     }
 
     /*@
