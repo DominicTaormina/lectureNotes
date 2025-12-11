@@ -15,7 +15,7 @@ precondition violated?
 
 
 postcondition check?
-
+    assert postcondition
 
 
 --> why might this would be preferable to only using test cases?
@@ -33,6 +33,8 @@ Global invariants in practice.
 --> where should we call it?
 
 
+At the beginning of a function
+At the end of a function
 
 
 ///////////////////////////////////////
